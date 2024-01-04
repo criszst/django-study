@@ -1,7 +1,11 @@
-{% if latestQuestion %}
-    <ul>
-    {% for question in latestQuestion %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+
+{% if latest_question_list %}
+<ul>
+    {% for question in latest_question_list %}
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.txtQuestion }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
